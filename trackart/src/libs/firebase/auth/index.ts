@@ -1,5 +1,5 @@
 import app from '../config'
-import {createUserWithEmailAndPassword, getAuth} from 'firebase/auth'
+import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword} from 'firebase/auth'
 import {  getFirestore, doc, setDoc  } from 'firebase/firestore'
 
 const auth = getAuth(app)
@@ -25,5 +25,21 @@ export async function SignUpWithEmail(email: string, password: string, nome: str
     } catch (error) {
         console.error(error);
         
+    }
+}
+
+export async function SignInWithEmail(email: string, password: string) {
+    try {
+        const response = await signInWithEmailAndPassword(auth, email, password)
+
+        if(!response.user){
+            return Error
+        }
+
+        return console.log('Deu certo!!');
+        
+
+    } catch (error) {
+        console.error(error);
     }
 }
