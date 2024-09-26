@@ -10,9 +10,6 @@ export const Background = styled(ImageBackground)`
       width: 100%;
 `;
 
-export const Body = styled(View)`
-`;
-
 export const ViewInput = styled(View)`
   height: 180px;
   top: 47%;

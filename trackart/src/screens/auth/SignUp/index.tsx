@@ -5,13 +5,10 @@ import { Inputs } from '../../../components/inputs';
 import background from '../../../assets/background.png'
 import {  Text, TouchableOpacity } from 'react-native';
 import { Button } from '../../../components/button';
-import Register from '../Register';
 import { useNavigation } from '@react-navigation/native';
 import { AuthNavigationRouteProps } from '../../../routes/auth/auth.routes';
 import { useState } from 'react';
 import { SignInWithEmail, SignUpWithEmail } from '../../../libs/firebase/auth';
-
-
 
 export default function SignUp() {
 
@@ -22,25 +19,20 @@ export default function SignUp() {
   const navigation = useNavigation<AuthNavigationRouteProps>()
 
   function handleOnRegister(){
-    navigation.navigate("Register")
+    navigation.navigate("Home")
   }
 
   async function handleOnSignUp(){
-
     try {
       const res = await SignUpWithEmail(email, password, name)
-
       if(!res){
         return Error
       }
-
-      navigation.navigate('Register')
-
+      navigation.navigate('Home')
     } catch (error) {
       console.error(error);
       
     }
-
   }
 
   return (
@@ -49,11 +41,10 @@ export default function SignUp() {
       
           <Text style={styles.title}>SignUp</Text>
            <ViewInput>
-           <Inputs item='Nome' onChangeText={setName}/>
-           <Inputs item='E-mail' onChangeText={setEmail}/>
-            <Inputs item='Senha' onChangeText={setPassword}/>
+           <Inputs item='Nome' onChangeText={text => setName(text)}/>
+           <Inputs item='E-mail' onChangeText={text => setEmail(text)}/>
+            <Inputs item='Senha' onChangeText={text => setPassword(text)}/>
           </ViewInput>
-
 
           <Text style={styles.newHere}>
             Novo aqui?
@@ -64,7 +55,7 @@ export default function SignUp() {
             </TouchableOpacity>
           </Text>
           
-          <Button title='Entrar' onPress={handleOnSignUp}/>
+          <Button title='Entrar' onPress={() => handleOnSignUp()}/>
 
         </Background >
       </Container>
