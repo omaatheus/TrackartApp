@@ -9,14 +9,15 @@ import Register from '../Register';
 import { useNavigation } from '@react-navigation/native';
 import { AuthNavigationRouteProps } from '../../../routes/auth/auth.routes';
 import { useState } from 'react';
-import { SignInWithEmail } from '../../../libs/firebase/auth';
+import { SignInWithEmail, SignUpWithEmail } from '../../../libs/firebase/auth';
 
 
 
-export default function SignIn() {
+export default function SignUp() {
 
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+  const [name, setName] = useState<string>('')
 
   const navigation = useNavigation<AuthNavigationRouteProps>()
 
@@ -24,10 +25,10 @@ export default function SignIn() {
     navigation.navigate("Register")
   }
 
-  async function handleOnSignIn(){
+  async function handleOnSignUp(){
 
     try {
-      const res = await SignInWithEmail(email, password)
+      const res = await SignUpWithEmail(email, password, name)
 
       if(!res){
         return Error
@@ -46,9 +47,10 @@ export default function SignIn() {
     <Container>
       <Background source={background}>
       
-          <Text style={styles.title}>LogIn</Text>
+          <Text style={styles.title}>SignUp</Text>
            <ViewInput>
-            <Inputs item='E-mail' onChangeText={setEmail}/>
+           <Inputs item='Nome' onChangeText={setName}/>
+           <Inputs item='E-mail' onChangeText={setEmail}/>
             <Inputs item='Senha' onChangeText={setPassword}/>
           </ViewInput>
 
@@ -62,7 +64,7 @@ export default function SignIn() {
             </TouchableOpacity>
           </Text>
           
-          <Button title='Entrar' onPress={handleOnSignIn}/>
+          <Button title='Entrar' onPress={handleOnSignUp}/>
 
         </Background >
       </Container>

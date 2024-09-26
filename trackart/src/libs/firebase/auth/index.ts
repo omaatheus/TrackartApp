@@ -19,7 +19,7 @@ export async function SignUpWithEmail(email: string, password: string, nome: str
             uid: userUid,
         })
 
-        return console.log('Deu certo!');
+        return true
         
 
     } catch (error) {
@@ -36,7 +36,7 @@ export async function SignInWithEmail(email: string, password: string) {
             return Error
         }
 
-        return console.log('Deu certo!!');
+        return response
         
 
     } catch (error) {
