@@ -19,7 +19,7 @@ export default function SignUp() {
   const navigation = useNavigation<AuthNavigationRouteProps>()
 
   function handleOnRegister(){
-    navigation.navigate("Home")
+    navigation.navigate("SignIn")
   }
 
   async function handleOnSignUp(){
@@ -39,7 +39,7 @@ export default function SignUp() {
     <Container>
       <Background source={background}>
       
-          <Text style={styles.title}>SignUp</Text>
+          <Text style={styles.title}>Cadastrar</Text>
            <ViewInput>
            <Inputs item='Nome' onChangeText={text => setName(text)}/>
            <Inputs item='E-mail' onChangeText={text => setEmail(text)}/>
@@ -47,15 +47,15 @@ export default function SignUp() {
           </ViewInput>
 
           <Text style={styles.newHere}>
-            Novo aqui?
+            Tem conta?
             <TouchableOpacity>
-              <Text style={styles.register} onPress={handleOnRegister}>
-                  Registre-se
+              <Text style={styles.enter} onPress={handleOnRegister}>
+                  Entrar.
               </Text>
             </TouchableOpacity>
           </Text>
           
-          <Button title='Entrar' onPress={() => handleOnSignUp()}/>
+          <Button title='Cadastrar' onPress={() => handleOnSignUp()}/>
 
         </Background >
       </Container>

@@ -11,9 +11,9 @@ export const Container = styled(TouchableOpacity)`
     height: 70px;
     width: 160px;
 
-    background-color: none;
+    background-color: #2F80ED;
 
-    
+    border-radius: 10px;
     border-width: 1px;
     border-color: #fff;
 
@@ -24,4 +24,9 @@ export const Title = styled.Text`
 
     font-size: 25px;
 
+`;
+
+export const ViewButton = styled.View`
+    height: 20%;
+    width: 100%;
 `;

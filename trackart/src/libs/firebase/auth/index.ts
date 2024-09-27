@@ -1,5 +1,5 @@
 import app from '../config'
-import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword} from 'firebase/auth'
+import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut} from 'firebase/auth'
 import {  getFirestore, doc, setDoc  } from 'firebase/firestore'
 
 const auth = getAuth(app)
@@ -41,5 +41,19 @@ export async function SignInWithEmail(email: string, password: string) {
 
     } catch (error) {
         console.error(error);
+    }
+}
+
+export async function signOutFb(){
+    try {
+        await signOut(auth)
+
+        console.log('Deu certo, Signout');
+
+        return true
+        
+    } catch (error) {
+        console.error(error);
+        
     }
 }

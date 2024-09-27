@@ -38,7 +38,7 @@ export default function SignIn() {
     <Container>
       <Background source={background}>
       
-          <Text style={styles.title}>LogIn</Text>
+          <Text style={styles.title}>Entrar</Text>
            <ViewInput>
             <Inputs item='E-mail' onChangeText={setEmail}/>
             <Inputs item='Senha' onChangeText={setPassword}/>

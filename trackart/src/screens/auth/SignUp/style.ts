@@ -37,11 +37,11 @@ export const styles = StyleSheet.create({
     fontWeight: '300',
   },
 
-  register: {
+  enter: {
     color: '#fff',
     fontWeight: '400',
-    marginLeft: 3,
-    top: 2
+    marginLeft: 6,
+    top: 3.
 
   }
 
