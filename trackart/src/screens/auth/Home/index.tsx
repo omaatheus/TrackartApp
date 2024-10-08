@@ -1,13 +1,10 @@
-import {  Text } from 'react-native';
 import { Container, Phrase, Title } from './styles';
-import { signOut } from 'firebase/auth';
-import { signOutFb, SignUpWithEmail } from '../../../libs/firebase/auth';
+import { signOutFb } from '../../../libs/firebase/auth';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { getAuth } from "firebase/auth";
 import { useEffect } from 'react';
 
-import { fetchNameUser } from '../../../libs/firebase/db/fechNameUser';
+import { fetchUserData } from '../../../libs/firebase/db/fetchUserData';
 import { Button } from '../../../components/button';
 import { ViewButton } from '../../../components/button/styles';
 
@@ -24,8 +21,10 @@ export default function Home(){
 
     async function fetchName(){
         try {
-            const result = await fetchNameUser()
-            setName(result)
+            const result: any = await fetchUserData()
+
+            const name = result.name
+            setName(name)
         } catch (error) {
             console.error(error);
             

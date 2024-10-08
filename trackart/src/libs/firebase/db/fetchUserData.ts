@@ -1,7 +1,7 @@
 import { getAuth } from "firebase/auth";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import app from "../config";
-export async function fetchNameUser(){
+export async function fetchUserData(){
     const auth = getAuth(app)
     const db = getFirestore(app)
     const user = auth.currentUser;
@@ -23,9 +23,9 @@ export async function fetchNameUser(){
 
         const userData: any = userDocSnapshot.data()
 
-        const username = userData.name
+        const dataUser: {} = userData
         
-        return username
+        return dataUser;
 
     } catch (error) {
         console.error(error)

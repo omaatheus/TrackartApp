@@ -1,14 +1,14 @@
-import { Background, Container, Body, ViewInput, styles } from './style';
+import { Background, Container, ViewInput, styles } from './style';
 
 import { Inputs } from '../../../components/inputs';
 
-import background from '../../../assets/background.png'
-import {  Text, TouchableOpacity } from 'react-native';
+import background from '../../../assets/background.png';
+import { Text, TouchableOpacity } from 'react-native';
 import { Button } from '../../../components/button';
 import { useNavigation } from '@react-navigation/native';
 import { AuthNavigationRouteProps } from '../../../routes/auth/auth.routes';
 import { useState } from 'react';
-import { SignInWithEmail, SignUpWithEmail } from '../../../libs/firebase/auth';
+import { SignUpWithEmail } from '../../../libs/firebase/auth';
 
 export default function SignUp() {
 
